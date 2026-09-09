@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.TimeZone;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -46,6 +47,14 @@ class KstTimeTest {
     @Test
     @DisplayName("값이 없으면 null 을 돌려준다")
     void iso_값이_없으면_null() {
-        assertThat(KstTime.iso(null)).isNull();
+        assertThat(KstTime.iso((Timestamp) null)).isNull();
+        assertThat(KstTime.iso((LocalDateTime) null)).isNull();
+    }
+
+    @Test
+    @DisplayName("도메인이 KST 벽시계로 적어 둔 시각도 같은 문자열이 된다")
+    void iso_LocalDateTime_도_같은_형식() {
+        assertThat(KstTime.iso(LocalDateTime.of(2026, 9, 1, 1, 23, 51))).isEqualTo("2026-09-01T01:23:51+09:00");
+        assertThat(KstTime.iso(LocalDateTime.of(2026, 9, 1, 1, 23, 51))).isEqualTo(KstTime.iso(WRITTEN_AT));
     }
 }

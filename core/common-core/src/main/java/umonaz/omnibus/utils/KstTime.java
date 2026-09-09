@@ -1,6 +1,7 @@
 package umonaz.omnibus.utils;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -36,5 +37,16 @@ public final class KstTime {
     /** 시각을 KST ISO 8601 문자열로. 값이 없으면 {@code null} 이다. */
     public static String iso(final Timestamp timestamp) {
         return Objects.isNull(timestamp) ? null : ISO_OFFSET.format(timestamp.toInstant());
+    }
+
+    /**
+     * KST 벽시계로 적어 둔 시각을 같은 형식의 문자열로. 값이 없으면 {@code null} 이다.
+     *
+     * <p>감사 컬럼이 아니라 도메인이 직접 적는 시각(게시 시각 등)은 {@code LocalDateTime} 으로 들고 있다.
+     * 그 값도 KST 벽시계라 존만 붙이면 {@link #iso(Timestamp)} 와 같은 문자열이 된다. 응답 시각의 모양이
+     * 필드에 따라 달라지면 클라이언트가 파서를 두 벌 두게 된다.
+     */
+    public static String iso(final LocalDateTime dateTime) {
+        return Objects.isNull(dateTime) ? null : ISO_OFFSET.format(dateTime.atZone(ZONE));
     }
 }
