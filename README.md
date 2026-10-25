@@ -27,6 +27,14 @@ relevant commit messages are retained for attribution.
 This repository is not connected to the production service and contains no
 deployment workflow.
 
+## Verify locally
+
+Java 21 is required.
+
+```bash
+./gradlew test
+```
+
 ## License
 
 No open-source license is granted by this proof of concept. Publication is for

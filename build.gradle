@@ -1,0 +1,41 @@
+plugins {
+    id "java"
+}
+
+group = "umonaz.omnibus"
+version = "0.1.0-poc"
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java.srcDirs = ["core/common-core/src/main/java"]
+    }
+    test {
+        java.srcDirs = ["core/common-core/src/test/java"]
+    }
+}
+
+dependencies {
+    testImplementation platform("org.junit:junit-bom:5.13.4")
+    testImplementation "org.junit.jupiter:junit-jupiter"
+    testImplementation "org.assertj:assertj-core:3.27.6"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+}
+
+tasks.named("test") {
+    useJUnitPlatform()
+    systemProperty "file.encoding", "UTF-8"
+}
