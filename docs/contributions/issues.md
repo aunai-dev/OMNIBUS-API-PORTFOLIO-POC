@@ -1,19 +1,19 @@
-# Representative Issues
+# 대표 Issue
 
-These issue summaries demonstrate problem definition and ownership. Every item
-below was authored by and assigned to `NCSUAL`, then closed in the private source
-repository. Bodies, comments, attachments, and private links are excluded.
+다음 Issue는 문제 정의와 담당 범위를 보여주는 사례입니다. 모두 `NCSUAL`이
+작성하고 담당자로 지정되었으며 비공개 원본 저장소에서 해결 후 종료됐습니다.
+본문, 댓글, 첨부물 및 비공개 링크는 제외했습니다.
 
-| Source issue | Opened (UTC) | Type | Outcome |
+| 원본 Issue | 생성일(UTC) | 유형 | 결과 |
 |---:|---|---|---|
-| #296 | 2026-09-09 | Feature | Defined an in-app notification inbox for user activity and news |
-| #298 | 2026-09-11 | Feature | Specified device-token APIs, push categories, payloads, and deep links for FCM |
-| #313 | 2026-09-23 | Feature | Defined knock-notification preferences and dynamic FCM message content |
-| #315 | 2026-09-24 | Feature | Generalized AdMob SSV custom data and reward consumption for paid capabilities |
-| #319 | 2026-10-03 | Bug | Identified and resolved account-deletion failures caused by missing FK cleanup |
-| #322 | 2026-10-15 | Fix | Restricted AdMob SSV callbacks to approved application ad units |
-| #325 | 2026-10-17 | Feature | Defined application-entry lock policy and settings behavior |
-| #327 | 2026-10-21 | Feature | Defined PIN registration, verification, hashing, change, and attempt limits |
+| #296 | 2026-09-09 | 기능 | 사용자 활동 및 소식을 위한 앱 내 알림함을 정의함 |
+| #298 | 2026-09-11 | 기능 | FCM 디바이스 토큰 API, 푸시 분류, payload 및 딥링크를 정의함 |
+| #313 | 2026-09-23 | 기능 | 노크 알림 설정과 동적 FCM 메시지 내용을 정의함 |
+| #315 | 2026-09-24 | 기능 | 유료 기능을 위한 AdMob SSV custom data와 리워드 소비를 일반화함 |
+| #319 | 2026-10-03 | 버그 | 누락된 FK 정리로 인한 회원탈퇴 실패를 식별하고 해결함 |
+| #322 | 2026-10-15 | 수정 | AdMob SSV 콜백을 승인된 앱 광고 단위로 제한함 |
+| #325 | 2026-10-17 | 기능 | 앱 진입 잠금 정책과 설정 동작을 정의함 |
+| #327 | 2026-10-21 | 기능 | PIN 등록·검증·해시·변경 및 시도 횟수 제한을 정의함 |
 
-The private source repository remains the authoritative record for the original
-issue text and timeline.
+원본 Issue의 전체 본문과 타임라인에 관한 최종 근거는 비공개 원본 저장소에
+남아 있습니다.

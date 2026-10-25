@@ -1,46 +1,47 @@
-# Contribution Record — NCSUAL
+# NCSUAL 기여도 기록
 
-Snapshot date: **2026-10-25**  
-Source: private `aunai-dev/OMNIBUS-API` repository  
-Source default-branch commit: `2bb3df083b6d1e3fecb8a198433816dafa0f7857`
+집계 기준일: **2026-10-25**
 
-## Verified activity snapshot
+원본: 비공개 `aunai-dev/OMNIBUS-API` 저장소
 
-| Activity | Count |
+원본 기본 브랜치 커밋: `2bb3df083b6d1e3fecb8a198433816dafa0f7857`
+
+## 확인된 활동 스냅샷
+
+| 활동 | 건수 |
 |---|---:|
-| Pull requests authored | 125 |
-| Pull requests merged | 123 |
-| Issues authored | 131 |
-| Issues assigned | 142 |
-| Pull requests reviewed | 3 |
-| Default-branch commits matching known author identities | 817 |
+| 작성한 Pull Request | 125 |
+| 병합된 Pull Request | 123 |
+| 작성한 Issue | 131 |
+| 담당자로 지정된 Issue | 142 |
+| 리뷰한 Pull Request | 3 |
+| 알려진 작성자 정보와 일치하는 기본 브랜치 커밋 | 817 |
 
-The counts were collected by the repository owner using authenticated GitHub
-API queries and Git author metadata. They describe the state of the source
-repository on the snapshot date and may change if the private repository is
-updated later.
+이 수치는 저장소 소유자가 인증된 GitHub API 조회와 Git 작성자 메타데이터를
+사용해 집계했습니다. 기준일 당시 원본 저장소의 상태를 나타내며, 이후 비공개
+저장소가 변경되면 현재 수치와 달라질 수 있습니다.
 
-## What can be independently inspected here
+## 이 저장소에서 직접 확인할 수 있는 자료
 
-- Original Git author names, author dates, and relevant commit messages for the
-  approved KST utility scope
-- The selected implementation and regression tests
-- A reconstructed public pull request showing the selected commits and diff:
+- 공개가 승인된 KST 유틸리티 범위의 원래 Git 작성자, 작성일 및 커밋 메시지
+- 선별된 구현 코드와 회귀 테스트
+- 선별 커밋과 diff를 보여주는 재구성 공개
   [PR #1](https://github.com/aunai-dev/OMNIBUS-API-PORTFOLIO-POC/pull/1)
-- A runnable Java 21 build with four passing regression tests
+- 회귀 테스트 4개가 포함된 Java 21 실행 환경
+- 비공개 원본 메타데이터를 기반으로 정리한 대표 PR 및 Issue 구성
 
-## Important evidence boundary
+## 증거 범위와 한계
 
-GitHub does not selectively copy native pull-request and issue metadata into a
-new repository. The original private PR numbers, timestamps, reviews, and
-comments therefore remain in the private source repository. Representative
-records in this repository are owner-published summaries of that private
-metadata, not recreated GitHub events.
+GitHub는 PR과 Issue의 기본 메타데이터를 선별해 새 저장소로 복사하는 기능을
+제공하지 않습니다. 원본 비공개 PR의 번호, 작성 시각, 리뷰, 승인 및 댓글은
+비공개 원본 저장소에 남아 있습니다. 이 저장소의 대표 기록은 저장소 소유자가
+비공개 메타데이터를 확인한 뒤 공개 가능한 범위로 요약한 것이며, 원본 GitHub
+이벤트를 복제한 것이 아닙니다.
 
-The public PR was created by the repository owner to demonstrate the filtered
-history. Its commits retain the original authors; its PR author and creation
-date are new metadata. A future portfolio PR can be opened directly by NCSUAL
-if native public PR authorship is desired.
+공개 PR #1은 정제된 이력의 구조를 확인하기 위해 저장소 소유자가 만들었습니다.
+PR 내부의 커밋 작성자는 원래 개발자로 유지되지만 PR 작성자와 PR 생성일은
+새로운 메타데이터입니다. 공개 PR 작성 이력까지 NCSUAL 계정에 남기려면 README의
+안내에 따라 NCSUAL이 본인 계정으로 별도 포트폴리오 PR을 생성해야 합니다.
 
-See [methodology](docs/contributions/methodology.md) for the counting rules and
-limitations.
+집계 규칙과 제한 사항은 [집계 방법](docs/contributions/methodology.md)을
+참고하세요.

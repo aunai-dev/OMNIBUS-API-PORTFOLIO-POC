@@ -1,53 +1,60 @@
-# Collection Methodology
+# 집계 방법
 
-## Scope
+## 범위
 
-This record was produced on 2026-10-25 from the private
-`aunai-dev/OMNIBUS-API` repository using an authenticated organization-owner
-account.
+이 기록은 2026-10-25에 인증된 조직 소유자 계정으로 비공개
+`aunai-dev/OMNIBUS-API` 저장소를 조회해 작성했습니다.
 
-## GitHub activity counts
+## GitHub 활동 건수
 
-Counts were obtained through GitHub's issue and pull-request search API with
-the `NCSUAL` login:
+`NCSUAL` 계정을 기준으로 GitHub의 Issue 및 Pull Request 검색 API를 사용했습니다.
 
-- Authored PRs: repository + `type:pr author:ncsual`
-- Merged PRs: repository + `type:pr author:ncsual is:merged`
-- Reviewed PRs: repository + `type:pr reviewed-by:ncsual`
-- Authored issues: repository + `type:issue author:ncsual`
-- Assigned issues: repository + `type:issue assignee:ncsual`
+- 작성 PR: 저장소 조건 + `type:pr author:ncsual`
+- 병합 PR: 저장소 조건 + `type:pr author:ncsual is:merged`
+- 리뷰 PR: 저장소 조건 + `type:pr reviewed-by:ncsual`
+- 작성 Issue: 저장소 조건 + `type:issue author:ncsual`
+- 담당 Issue: 저장소 조건 + `type:issue assignee:ncsual`
 
-Pull requests are represented in GitHub's issue-search index, so `type:issue`
-was used to keep issue counts separate from pull requests.
+GitHub 검색 인덱스에서는 Pull Request도 Issue 계열 객체로 취급되므로, 순수한
+Issue 건수와 PR 건수를 구분하기 위해 `type:issue`와 `type:pr` 조건을 각각
+사용했습니다.
 
-## Commit count
+## 커밋 건수
 
-The commit count was measured on the source repository's default-branch history
-at commit `2bb3df083b6d1e3fecb8a198433816dafa0f7857`. Commits were matched against
-the two author email identities already associated with NCSUAL in the private
-history. Merge commits are included; commits reachable only from unmerged
-branches are excluded.
+커밋 건수는 원본 저장소 기본 브랜치의
+`2bb3df083b6d1e3fecb8a198433816dafa0f7857` 커밋까지 집계했습니다. 비공개
+이력에서 NCSUAL과 연결된 것으로 확인된 두 작성자 이메일을 기준으로 일치 여부를
+판단했습니다. 병합 커밋은 포함하고, 병합되지 않은 브랜치에만 존재하는 커밋은
+제외했습니다.
 
-Historic display names were not normalized. This is why the public commit graph
-may show `NCSUAL`, `이석현`, and `unknown` even when the underlying known author
-identity matches.
+과거 표시 이름은 강제로 통일하지 않았습니다. 따라서 실제 작성자 정보가
+연결되어 있더라도 공개 커밋 그래프에는 `NCSUAL`, `이석현`, `unknown`이 각각
+표시될 수 있습니다.
 
-## Representative records
+## 대표 기록과 PR 구성 확인 방법
 
-Representative PR and issue tables contain only titles, dates, state, and
-coarse change statistics approved for this portfolio proof of concept. Bodies,
-comments, reviews, attachments, user data, secrets, and private links were not
-copied.
+대표 PR은 GitHub API에서 다음 정보를 읽어 구성했습니다.
 
-Change size is contextual evidence, not a quality score. Large rename-heavy
-architecture changes can report many changed files without representing the
-same effort as an equivalent number of newly implemented files.
+- 원본 PR 번호, 제목, 생성일과 병합일
+- 커밋 제목과 개수
+- 변경 파일 수와 추가·삭제 줄 수
+- 변경 파일의 최상위 모듈 분포
+- 테스트 파일 수와 테스트 범위
 
-## Reproducibility and limits
+100개를 초과하는 변경 파일 목록은 GitHub 조회 결과가 페이지 단위로 제한될 수
+있으므로, 대규모 구조 변경 PR은 파일별 목록 대신 원본 PR의 전체 변경 파일 수와
+커밋 구성을 중심으로 설명했습니다.
 
-- The private source repository is the authoritative record.
-- External readers cannot independently open private source PRs or issues.
-- The organization-owned public repository attests that these figures were
-  compared against the private source at the stated snapshot.
-- A future update should record a new snapshot date and source commit rather
-  than silently replacing these figures.
+본문, 댓글, 리뷰, 첨부물, 사용자 데이터, 비밀정보 및 비공개 링크는 복사하지
+않았습니다.
+
+변경 규모는 맥락을 설명하는 자료이지 품질 점수가 아닙니다. 특히 대규모 모듈
+이동은 신규 구현과 달리 파일 수가 크게 집계될 수 있습니다.
+
+## 재현 가능성과 한계
+
+- 비공개 원본 저장소가 최종적인 근거 자료입니다.
+- 외부 사용자는 비공개 원본 PR과 Issue를 직접 열어볼 수 없습니다.
+- 이 조직 소유 공개 저장소는 명시된 기준일에 원본과 수치를 대조했음을 기록합니다.
+- 향후 갱신할 때는 기존 수치를 조용히 덮어쓰지 않고 새 기준일과 원본 커밋을
+  함께 기록해야 합니다.

@@ -1,24 +1,24 @@
-# Feature and Ownership Map
+# 기능 및 책임 영역 매핑
 
-This map connects representative private records to the engineering areas they
-evidence. Only the KST example has source code published in this PoC.
+이 표는 대표 비공개 기록과 해당 기록이 보여주는 기술 영역을 연결합니다. 현재
+PoC에서 실제 소스 코드까지 공개된 사례는 KST 처리 영역뿐입니다.
 
-| Area | Evidence | Demonstrated responsibility |
+| 영역 | 근거 | 확인되는 책임 |
 |---|---|---|
-| Multi-module architecture | PR #317 | Defined executable-service boundaries and grouped domain/storage modules by technology |
-| Engineering process | PR #318 | Introduced ADR, planning, validation, and publication gates |
-| API time consistency | PR #259, public PR #1 | Centralized KST serialization and added timezone regression tests |
-| Notifications | Issues #296, #298, #313; PR #314 | Designed inbox, device-token, preference, message, and FCM delivery behavior |
-| Monetization | Issues #315, #322; PR #316 | Designed and implemented server-side reward verification and entitlement consumption |
-| Application security | Issues #325, #327; PR #328 | Implemented hashed application-lock credentials and attempt limiting |
-| Data integrity | Issue #319 | Diagnosed and corrected account-deletion FK cleanup gaps |
-| Production operations | PR #321 | Maintained ECS task logging behavior |
+| 멀티모듈 아키텍처 | PR #317 | 실행 서비스 경계를 정의하고 도메인·저장소 모듈을 기술 기준으로 재편함 |
+| 개발 절차 | PR #318 | ADR, 계획, 검증 및 게시 관문을 도입함 |
+| API 시간 일관성 | PR #259, 공개 PR #1 | KST 직렬화를 한곳으로 모으고 시간대 회귀 테스트를 추가함 |
+| 알림 | Issue #296·#298·#313, PR #314 | 알림함, 디바이스 토큰, 설정, 메시지 및 FCM 전송 동작을 설계함 |
+| 수익화 | Issue #315·#322, PR #316 | 서버 측 리워드 검증과 유료 기능 권한 소비를 설계·구현함 |
+| 애플리케이션 보안 | Issue #325·#327, PR #328 | 해시 기반 앱 잠금 자격증명과 시도 횟수 제한을 구현함 |
+| 데이터 무결성 | Issue #319 | 회원탈퇴 과정에서 누락된 FK 정리를 진단하고 수정함 |
+| 운영 인프라 | PR #321 | ECS 태스크 로그 수집 구성을 복구함 |
 
-## Evidence levels
+## 근거 수준
 
-- **Public code evidence:** source, tests, commits, and diff are visible in this
-  repository.
-- **Owner-published metadata:** the organization owner verified the private PR
-  or issue record and published a sanitized summary here.
-- **Private authoritative record:** details remain available only to authorized
-  members of the source repository.
+- **공개 코드 근거:** 이 저장소에서 소스, 테스트, 커밋 및 diff를 직접 확인할 수
+  있습니다.
+- **저장소 소유자가 공개한 메타데이터:** 조직 소유자가 비공개 PR 또는 Issue를
+  확인한 뒤 공개 가능한 범위로 요약했습니다.
+- **비공개 최종 근거:** 세부 사항은 원본 저장소에 접근할 권한이 있는 구성원만
+  확인할 수 있습니다.
