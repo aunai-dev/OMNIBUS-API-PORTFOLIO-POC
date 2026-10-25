@@ -1,0 +1,27 @@
+{
+  "snapshotDate": "2026-10-25",
+  "sourceRepository": "aunai-dev/OMNIBUS-API",
+  "sourceDefaultBranchCommit": "2bb3df083b6d1e3fecb8a198433816dafa0f7857",
+  "contributor": {
+    "githubLogin": "NCSUAL",
+    "displayName": "이석현"
+  },
+  "activity": {
+    "pullRequestsAuthored": 125,
+    "pullRequestsMerged": 123,
+    "issuesAuthored": 131,
+    "issuesAssigned": 142,
+    "pullRequestsReviewed": 3,
+    "defaultBranchCommitsMatchingKnownAuthorIdentities": 817
+  },
+  "evidence": {
+    "publicPullRequest": "https://github.com/aunai-dev/OMNIBUS-API-PORTFOLIO-POC/pull/1",
+    "representativeSourcePullRequests": [259, 314, 316, 317, 318, 321, 328],
+    "representativeSourceIssues": [296, 298, 313, 315, 319, 322, 325, 327]
+  },
+  "limitations": [
+    "Private pull request and issue bodies, comments, reviews, attachments, and links are not published.",
+    "The public pull request is reconstructed and therefore has new native PR metadata.",
+    "The private source repository remains the authoritative record."
+  ]
+}
