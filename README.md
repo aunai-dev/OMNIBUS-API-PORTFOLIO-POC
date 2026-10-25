@@ -27,6 +27,20 @@ relevant commit messages are retained for attribution.
 This repository is not connected to the production service and contains no
 deployment workflow.
 
+## Contribution evidence
+
+- [Contribution record](CONTRIBUTIONS.md)
+- [Contributor identity and attribution](CONTRIBUTORS.md)
+- [Representative pull requests](docs/contributions/pull-requests.md)
+- [Representative issues](docs/contributions/issues.md)
+- [Feature and ownership map](docs/contributions/feature-map.md)
+- [Collection methodology](docs/contributions/methodology.md)
+- [KST consistency case study](docs/case-studies/kst-time-consistency.md)
+
+The aggregate record was generated from the private source repository by its
+organization owner. Private discussions, attachments, deployment details, and
+unapproved source code were not copied.
+
 ## Verify locally
 
 Java 21 is required.
