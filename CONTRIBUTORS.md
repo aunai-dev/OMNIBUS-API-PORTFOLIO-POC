@@ -1,21 +1,21 @@
-# Contributors
+# 기여자
 
 ## NCSUAL / 이석현
 
-Primary areas evidenced by the private source repository:
+비공개 원본 저장소에서 확인되는 주요 담당 영역:
 
-- Backend and multi-module architecture
-- Domain and API feature implementation
-- Authentication and application security
-- Notification and FCM integration
-- AdMob server-side verification and entitlement flows
-- CI/CD, ECS deployment, and operational reliability
-- Engineering workflow and review automation
+- 백엔드 및 멀티모듈 아키텍처
+- 도메인과 API 기능 구현
+- 인증 및 애플리케이션 보안
+- 알림 및 FCM 연동
+- AdMob 서버 측 검증과 권한 소비 흐름
+- CI/CD, ECS 배포 및 운영 안정성
+- 개발 절차와 검토 자동화
 
-The filtered Git history retains the original author identities found in the
-source repository: `NCSUAL`, `이석현`, and an older `unknown` display name tied
-to the same known author email identity. The repository owner has not rewritten
-those historic author fields.
+정제된 Git 이력에는 원본 저장소에서 확인된 `NCSUAL`, `이석현`, `unknown`이라는
+작성자 표시가 그대로 남아 있습니다. `unknown`은 알려진 동일 작성자 이메일과
+연결된 과거 표시 이름입니다. 저장소 소유자는 기존 커밋의 작성자 필드를 임의로
+다시 작성하지 않았습니다.
 
-This file is a technical attribution record. It is not an employment
-certificate or a legal determination of intellectual-property ownership.
+이 문서는 기술적 기여 귀속을 설명하기 위한 기록입니다. 경력증명서나 지식재산권
+소유에 관한 법적 판단을 대신하지 않습니다.

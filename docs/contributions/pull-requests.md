@@ -1,29 +1,182 @@
-# Representative Pull Requests
+# 대표 Pull Request와 구성
 
-The following records were selected to show breadth across architecture,
-product functionality, reliability, security, and infrastructure. They are
-summaries of private source-repository metadata; private bodies, comments,
-reviews, and links are intentionally omitted.
+다음 PR은 아키텍처, 제품 기능, 안정성, 보안 및 인프라 기여 범위를 보여주기 위해
+선정했습니다. 비공개 원본 저장소의 메타데이터를 저장소 소유자가 확인해 요약한
+것이며, 비공개 본문·댓글·리뷰·첨부물·링크는 포함하지 않았습니다.
 
-| Source PR | Opened (UTC) | Result | Commits | Files | Change | Contribution |
+## 전체 요약
+
+| 원본 PR | 생성일(UTC) | 결과 | 커밋 | 파일 | 변경 규모 | 주요 기여 |
 |---:|---|---|---:|---:|---:|---|
-| #259 | 2026-09-01 | Merged | 10 | 23 | +588 / -203 | Fixed a room-update failure and unified API timestamp output around KST |
-| #314 | 2026-09-23 | Merged | 4 | 25 | +538 / -43 | Added notification preferences and FCM push integration |
-| #316 | 2026-09-24 | Merged | 7 | 45 | +1,882 / -273 | Generalized AdMob SSV reward verification across six paid capabilities |
-| #317 | 2026-09-24 | Merged | 16 | 1,081 | +417 / -620 | Reworked multi-module boundaries around executable services and storage technology |
-| #318 | 2026-10-03 | Merged | 1 | 76 | +5,529 / -546 | Introduced an engineering harness for planning, ADR, verification, and publishing gates |
-| #321 | 2026-10-14 | Merged | 1 | 2 | +12 / -4 | Restored centralized ECS task logging configuration |
-| #328 | 2026-10-21 | Merged | 7 | 42 | +1,141 / -48 | Added application-lock registration, verification, change, and attempt limiting |
+| #259 | 2026-09-01 | 병합 | 10 | 23 | +588 / -203 | 방 수정 응답 장애를 고치고 API 시각 출력을 KST로 통일 |
+| #314 | 2026-09-23 | 병합 | 4 | 25 | +538 / -43 | 알림 설정과 FCM 푸시 연동 추가 |
+| #316 | 2026-09-24 | 병합 | 7 | 45 | +1,882 / -273 | 여섯 가지 유료 기능의 AdMob SSV 리워드 검증 일반화 |
+| #317 | 2026-09-24 | 병합 | 16 | 1,081 | +417 / -620 | 실행 서비스와 저장 기술을 기준으로 멀티모듈 경계 재편 |
+| #318 | 2026-10-03 | 병합 | 1 | 76 | +5,529 / -546 | 계획·ADR·검증·게시 관문을 포함한 개발 하네스 도입 |
+| #321 | 2026-10-14 | 병합 | 1 | 2 | +12 / -4 | ECS 태스크 중앙 로그 설정 복구 |
+| #328 | 2026-10-21 | 병합 | 7 | 42 | +1,141 / -48 | 앱 잠금 등록·검증·변경 및 시도 횟수 제한 구현 |
 
-## Publicly inspectable example
+변경 줄 수와 파일 수는 작업 범위를 이해하기 위한 참고 자료입니다. 코드 품질이나
+개발자 평가 점수로 사용하지 않습니다.
 
-The approved portion of source PR #259 is represented by
-[public PR #1](https://github.com/aunai-dev/OMNIBUS-API-PORTFOLIO-POC/pull/1).
-It exposes only the KST utility and regression-test paths. The source PR covered
-additional private modules that are deliberately excluded.
+## PR #259 — 방 수정 안정화와 KST 시간 통일
 
-## Native metadata limitation
+구성:
 
-The public PR is a reconstruction. Original Git commits retain their author
-metadata, but the original PR author, reviewers, approvals, comments, PR number,
-and timestamps cannot be selectively transplanted as native GitHub metadata.
+- 커밋 10개, 변경 파일 23개
+- API 9개, 서비스 5개, 코어 3개, 도메인 3개, 데이터 1개 및 실행·빌드 설정
+- 테스트 파일 8개
+
+커밋 흐름:
+
+1. 방 조회·생성·저장의 트랜잭션 경계를 서비스 계층으로 이동
+2. 저장 커밋 후 재조회하여 응답을 만들도록 수정
+3. 방 수정 응답 회귀 테스트 추가
+4. KST 시간 직렬화 기준을 공통 코어로 통합
+5. API 시각 응답을 JVM 기본 시간대에서 분리
+6. 애플리케이션 기본 시간대를 KST로 고정
+7. JVM이 UTC여도 KST가 유지되는 공통 테스트 추가
+8. 기준 브랜치 변경 병합
+9. 테스트 JVM 시간대를 CI와 같은 UTC로 고정
+10. 기존 API 시각 픽스처를 실행 환경과 무관하게 수정
+
+테스트 범위:
+
+- 공통 시간 변환
+- 방 서비스와 Facade
+- 사용자 관계 및 고유번호 응답
+- 데이터 조회
+
+이 PR에서 공개 승인을 받은 KST 관련 부분은
+[공개 PR #1](https://github.com/aunai-dev/OMNIBUS-API-PORTFOLIO-POC/pull/1)에서
+실제 커밋과 diff로 확인할 수 있습니다.
+
+## PR #314 — 알림 설정과 FCM 푸시
+
+구성:
+
+- 커밋 4개, 변경 파일 25개
+- 서비스 8개, API 7개, 데이터 4개, 도메인 4개, 이벤트 1개, 문서 1개
+- 테스트 파일 7개
+
+커밋 흐름:
+
+1. 사용자 설정에 노크 수신·방문 허가 알림 설정 추가
+2. 인연 요청·수락 푸시 본문에 상대방 이름 추가
+3. 노크와 방문 허가 이벤트를 FCM 푸시로 연결
+4. 메시지 예외와 payload 규칙 문서화
+
+테스트 범위:
+
+- 사용자 설정 API와 매핑
+- 사용자 이름 조회
+- 노크 Facade
+- 푸시 디스패처와 메시지 생성
+- 신규 사용자 기본 설정
+
+## PR #316 — AdMob SSV 유료 기능 통합
+
+구성:
+
+- 커밋 7개, 변경 파일 45개
+- 서비스 21개, API 12개, 도메인 8개, 데이터 2개, 문서 2개
+- 테스트 파일 18개
+
+커밋 흐름:
+
+1. 광고 리워드를 기능별 유형으로 구분해 저장·소비
+2. 포스트잇 추가 작성 권한 연결
+3. 문 주인 전용 공개 권한 연결
+4. 유료 노크 연결
+5. 피드 낙서 기능 연결
+6. 유료 지우개 재원 연결
+7. `custom_data`와 리워드 소비 규칙 문서화
+
+테스트 범위:
+
+- SSV 검증 통합 테스트
+- 중복·소유권·유형 검증
+- 각 유료 기능의 권한 소비
+- API 요청과 응답
+
+## PR #317 — 멀티모듈 아키텍처 재편
+
+구성:
+
+- 커밋 16개, 변경 파일 1,081개
+- `api`, `service`, `data`, `domain`, `core`, `bootstrap` 전반의 대규모 이동과 통합
+- Docker 및 GitHub Actions 빌드 경로 동기화
+
+핵심 커밋 묶음:
+
+1. 도메인과 저장소 모듈을 저장 기술 기준으로 통합
+2. 컨트롤러와 서비스 모듈을 실행 기능 기준으로 통합
+3. 런처와 보안 설정 위치 재정의
+4. 중복 `WebConfig` 충돌 제거
+5. CI 및 컨테이너 빌드 경로 변경
+6. 공통 웹 지원 모듈을 `core-web`으로 통합
+7. 모놀리스와 계정 서비스를 각각 실행 모듈로 재편
+8. 문서와 테스트를 새 모듈 구조에 맞게 수정
+
+이 PR은 파일 이동 비중이 크므로 1,081개라는 파일 수를 신규 구현량으로 해석하면
+안 됩니다. 핵심 기여는 의존 방향과 실행 단위의 경계를 다시 정의하고, 빌드·CI·
+문서를 함께 일치시킨 데 있습니다.
+
+## PR #318 — 개발 하네스 도입
+
+구성:
+
+- 커밋 1개, 변경 파일 76개
+- 하네스 34개, 에이전트·스킬 설정 38개, 프로젝트 안내 및 문서 4개
+- 테스트 파일 9개
+
+포함 기능:
+
+- Issue 기획 형식 검사
+- ADR 존재 여부와 내용 검사
+- 계획 및 완료 증적 스키마 검증
+- Git 상태 및 출처 검증
+- Issue와 PR 게시 자동화
+- 게시 전 검증 관문
+
+## PR #321 — ECS 로그 드라이버 복구
+
+구성:
+
+- 커밋 1개, 변경 파일 2개, +12 / -4
+- 애플리케이션과 Redis ECS task definition 수정
+- ECS가 지원하는 `awslogs` 드라이버로 중앙 로그 수집 복구
+
+코드 테스트 파일은 없으며, task definition 등록과 배포 환경의 로그 생성 여부가
+검증 대상인 인프라 설정 변경입니다.
+
+## PR #328 — 앱 잠금 비밀번호
+
+구성:
+
+- 커밋 7개, 변경 파일 42개
+- 도메인·데이터 24개, 서비스·API 16개, 문서 1개, 워커 1개
+- 테스트 파일 6개
+
+커밋 흐름:
+
+1. 잠금 비밀번호를 해시로 저장하고 연속 실패 잠금 정책 구현
+2. 저장 및 조회 어댑터 추가
+3. 등록·검증·변경 UseCase 구현
+4. 등록·잠금 해제·변경 API 공개
+5. 오류 코드와 동작 문서화
+6. 관련 설정 및 후속 정리
+
+테스트 범위:
+
+- 비밀번호 엔티티와 해시 저장
+- 저장소 어댑터
+- API 요청 및 응답
+- 연속 실패 시도 제한
+- 등록·검증·변경 UseCase
+
+## 공개 PR의 한계
+
+공개 PR은 원본을 그대로 이전한 것이 아니라 승인된 코드만으로 재구성한 것입니다.
+원래 Git 커밋의 작성자 정보는 유지되지만 원본 PR 작성자, 리뷰어, 승인, 댓글,
+번호 및 시각을 GitHub의 기본 메타데이터로 선별 이전할 수는 없습니다.
